@@ -19,12 +19,19 @@ class Toolbar extends React.Component {
     return (
       <div className="rbc-toolbar">
         <span className="rbc-btn-group">
-          <button
-            type="button"
-            onClick={this.navigate.bind(null, navigate.TODAY)}
-          >
-            {messages.today}
-          </button>
+          {(() => {
+            if (messages.today) {
+              return (
+                <button
+                  type="button"
+                  onClick={this.navigate.bind(null, navigate.TODAY)}
+                >
+                  {messages.today}
+                </button>
+              )
+            }
+          })()}
+
           <button
             type="button"
             onClick={this.navigate.bind(null, navigate.PREVIOUS)}
