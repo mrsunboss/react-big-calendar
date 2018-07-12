@@ -31,19 +31,30 @@ class Toolbar extends React.Component {
               )
             }
           })()}
-
-          <button
-            type="button"
-            onClick={this.navigate.bind(null, navigate.PREVIOUS)}
-          >
-            {messages.previous}
-          </button>
-          <button
-            type="button"
-            onClick={this.navigate.bind(null, navigate.NEXT)}
-          >
-            {messages.next}
-          </button>
+          {(() => {
+            if (messages.previous) {
+              return (
+                <button
+                  type="button"
+                  onClick={this.navigate.bind(null, navigate.PREVIOUS)}
+                >
+                  {messages.previous}
+                </button>
+              )
+            }
+          })()}
+          {(() => {
+            if (messages.next) {
+              return (
+                <button
+                  type="button"
+                  onClick={this.navigate.bind(null, navigate.NEXT)}
+                >
+                  {messages.next}
+                </button>
+              )
+            }
+          })()}
         </span>
 
         <span className="rbc-toolbar-label">{label}</span>
